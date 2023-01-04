@@ -1,0 +1,25 @@
+@import 'styles/main.scss';
+
+.header {
+    border-bottom: 1px solid $btnTextColor;
+
+    &__container {
+        width: 1200px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+    }
+
+    &__menu {
+        display: flex;
+    }
+
+    &__menuTitle {
+        font-size: 20px;
+        margin-right: 40px;
+
+    }
+}
