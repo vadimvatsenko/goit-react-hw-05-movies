@@ -15,7 +15,6 @@ export  async function getTrendMovie() {
 export async function findMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}?api_key=${API_KEY}&language=en-US`
     const response = await axios.get(axiosUrl);
-    console.log(response.data);
     return response.data;
 
 

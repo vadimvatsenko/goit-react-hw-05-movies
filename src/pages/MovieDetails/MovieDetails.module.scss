@@ -1,5 +1,9 @@
 @import 'styles/main.scss';
 
+.text {
+    color: rgb(3, 32, 181)
+}
+
 .movieWrap {
     display: flex;
     text-align: center;
@@ -8,4 +12,20 @@
 
 .overview {
     margin-top: 20px;
+    text-align: center;
+}
+
+.genres {
+    display: flex;
+    justify-content: center;
+
+}
+
+.genresItem+.genresItem {
+    margin-left: 20px;
+
+}
+
+.genresItem {
+    @extend .text;
 }
