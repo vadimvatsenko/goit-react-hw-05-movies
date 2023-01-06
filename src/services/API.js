@@ -16,7 +16,13 @@ export async function findMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}?api_key=${API_KEY}&language=en-US`
     const response = await axios.get(axiosUrl);
     return response.data;
-
-
 }
+
+export async function findMovieByName(movieName) {
+    const axiosUrl = `search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`
+    const response = await axios.get(axiosUrl);
+    return response.data;
+}
+
+findMovieByName('batman')
 

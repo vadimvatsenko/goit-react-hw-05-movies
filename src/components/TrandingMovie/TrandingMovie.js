@@ -18,7 +18,4 @@ export default function TrandingMovie({ trandMovies }) {
             </ul>
         </section>
     );
-
- 
-    
 }

@@ -1,9 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
-// import Home from "path/to/pages/Home";
-// import About from "path/to/pages/About";
-// import Products from "path/to/pages/Products";
-
 
 import { getTrendMovie } from "services/API";
 import TrandingMovie from './TrandingMovie/TrandingMovie';
@@ -19,8 +15,6 @@ import { Nav } from './Nav/Nav';
 export const App = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   // const [searchMovie, setSearchMovie] = useState([]);
-
-
   useEffect(() => {
    
       const getTrandObj = async () => {
