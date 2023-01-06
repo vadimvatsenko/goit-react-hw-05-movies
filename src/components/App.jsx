@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 
 import { getTrendMovie } from "services/API";
 import TrandingMovie from './TrandingMovie/TrandingMovie';
-import MovieDetails from "../pages/MovieDetails";
+import MovieDetails from "../pages/MovieDetails/MovieDetails";
 import { Home } from '../pages/Home';
 import { Movie} from '../pages/Movies'
 import { NotFound } from "../pages/NotFound";
