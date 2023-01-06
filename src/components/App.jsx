@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 // import Products from "path/to/pages/Products";
 
 
-import getTrendMovie from '../services/API';
+import { getTrendMovie } from "services/API";
 import TrandingMovie from './TrandingMovie/TrandingMovie';
-import MovieDetails from "./MovieDetails/MovieDetails";
+import MovieDetails from "../pages/MovieDetails";
 import { Home } from '../pages/Home';
 import { Movie} from '../pages/Movies'
 import { NotFound } from "../pages/NotFound";
@@ -17,27 +17,19 @@ import { Nav } from './Nav/Nav';
 
 
 export const App = () => {
-  const [trendMovie, setTrendMovie] = useState([]);
-  const [searchMovie, setSearchMovie] = useState([]);
+  const [trendMovies, setTrendMovies] = useState([]);
+  // const [searchMovie, setSearchMovie] = useState([]);
 
 
   useEffect(() => {
    
       const getTrandObj = async () => {
         const trandObj = await getTrendMovie();
-        setTrendMovie(trandObj);
+        setTrendMovies(trandObj);
       }
       getTrandObj();
     
   }, []);
-
-
-
-//   const getProductById = (productId) => {
-//   return products.find((product) => product.id === productId);
-// };
-
-  
 
   return (
     <div>
@@ -45,11 +37,11 @@ export const App = () => {
       
     <Routes>
         <Route path="/" element={<Home>
-          <TrandingMovie trandMovies={trendMovie} />
+          <TrandingMovie trandMovies={trendMovies} />
         </Home>} />
         
         <Route path="/movie" element={<Movie />} />
-        <Route path="/movie/:movieId" element={<MovieDetails trandMovies={trendMovie}/>} />
+        <Route path="/movie/:movieId" element={<MovieDetails/>} />
 
         <Route path="*" element={<NotFound />} />
     </Routes>

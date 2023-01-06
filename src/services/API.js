@@ -5,11 +5,18 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
 
 
 
-export default async function getTrendMovie() {
+export  async function getTrendMovie() {
     const axiosUrl = `trending/all/day?api_key=${API_KEY}`
     const response = await axios.get(axiosUrl)
     return response.data.results;
     
 };
 
+export async function findMovieById(movie_id) {
+    const axiosUrl = `movie/${movie_id}?api_key=${API_KEY}&language=en-US`
+    const response = await axios.get(axiosUrl);
+    console.log(response);
+
+
+}
 
