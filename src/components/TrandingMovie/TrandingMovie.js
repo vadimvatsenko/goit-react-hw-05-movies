@@ -10,7 +10,7 @@ export default function TrandingMovie({ trandMovies }) {
             <ul>
                 {trandMovies.map(({ title, name, id }) => (
                 <li key={id} className={style.trendingMovieItem}  >
-                        <Link  to={`${id}`}>
+                        <Link  to={`/movie/${id}`}>
                         {title ? title : name}
                     </Link>
                     </li>

@@ -5,12 +5,16 @@ import { findMovieById } from '../services/API'
 export default function MovieDetails() {
   const { movieId } = useParams();
   const movie = findMovieById(movieId);
-  console.log(movie)
-  console.log(movie)
-   
+  const { title, genres, vote_average } = movie;
+
+  console.log(title)
 
 
-    return (
-      <h2>{movie}</h2>
+
+  
+
+  return (
+    
+   <div>{title}</div>
     )
 }
