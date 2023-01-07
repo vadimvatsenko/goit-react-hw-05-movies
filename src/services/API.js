@@ -27,7 +27,7 @@ export async function findMovieByName(movieName) {
 export async function castMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`;
     const response = await axios.get(axiosUrl);
-    return response.data;
+    console.log(response.data.cast)
+    return response.data.cast;
 }
 
-castMovieById()
