@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { castMovieById } from "services/API";
+import style from './Cast.module.scss';
 
 
 
@@ -29,10 +30,10 @@ export default function Cast() {
         // const imgUrl = `https://image.tmdb.org/t/p/w500/${profile_path}`;
   
         return (
-            <ul>
+            <ul className={style.cast}>
                 {movieCastObj.map(({name, character, profile_path}) => (
-                <li>
-                    <img  alt={name} />
+                <li key={movieId}>
+                    <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} alt={name} width='280' />
                     <p>{ name}</p>
                     <p>{character }</p>
                     </li>
