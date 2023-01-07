@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
 
 
 
-export  async function getTrendMovie() {
+export async function getTrendMovie() {
     const axiosUrl = `trending/movie/day?api_key=${API_KEY}`
     const response = await axios.get(axiosUrl)
     return response.data.results;
@@ -24,5 +24,10 @@ export async function findMovieByName(movieName) {
     return response.data;
 }
 
-findMovieByName('batman')
+export async function castMovieById(movie_id) {
+    const axiosUrl = `movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`;
+    const response = await axios.get(axiosUrl);
+    return response.data;
+}
 
+castMovieById()
