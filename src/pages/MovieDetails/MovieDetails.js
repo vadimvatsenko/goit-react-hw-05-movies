@@ -59,9 +59,9 @@ export const MovieDetails = () => {
             </div>
           </div>
         </div>
-        <ul>
-          <li><Link  to="cast" end>Cast</Link></li>
-          <li><Link  to="reviews" end>Reviews</Link></li>
+        <ul className={style.movieMoreInfo}>
+          <li className={style.movieMoreInfoLink}><Link  to="cast" end>Cast</Link></li>
+          <li className={style.movieMoreInfoLink}><Link  to="reviews" end>Reviews</Link></li>
         </ul>
         <Outlet />
       </main>

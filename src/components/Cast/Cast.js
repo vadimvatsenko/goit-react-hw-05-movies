@@ -10,8 +10,6 @@ export default function Cast() {
     const [movieCastObj, setMovieCastObj] = useState(null);
     const [error, setError] = useState(null);
 
-    console.log(movieId)
-
    useEffect(() => {
     const getMovieObj = async () => {
       try {
@@ -27,29 +25,30 @@ export default function Cast() {
     
  
     if (movieCastObj) {
-        // const imgUrl = `https://image.tmdb.org/t/p/w500/${profile_path}`;
   
         return (
             <ul className={style.cast}>
                 {movieCastObj.map(({ id, name, character, profile_path }) => (
                     
                     <li key={id} className={style.castWrap}>
-                        {profile_path !== null ?
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
-                                alt={name}
-                                width='280' /> :
+                        <div className={style.castWrapContetnt}>
+                            {profile_path !== null ?
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+                                    alt={name}
+                                    width='280' /> :
                             
                             
-                            <div className={style.noFotoWrap}><img className={style.noFotoImg}
-                                src='https://w7.pngwing.com/pngs/998/203/png-transparent-black-and-white-no-to-camera-logo-video-on-demand-retail-website-simple-no-miscellaneous-television-text.png'
-                                alt={name}
+                                <div className={style.noFotoWrap}><img className={style.noFotoImg}
+                                    src='https://w7.pngwing.com/pngs/998/203/png-transparent-black-and-white-no-to-camera-logo-video-on-demand-retail-website-simple-no-miscellaneous-television-text.png'
+                                    alt={name}
                                
-                            /></div>}
+                                /></div>}
                            
-                        <div className={style.castInfo}>
-                            <p>{name}</p>
-                            <p>{character}</p>
+                            <div className={style.castInfo}>
+                                <p>{name}</p>
+                                <p>{character}</p>
+                            </div>
                         </div>
                     </li>
                 ))}
