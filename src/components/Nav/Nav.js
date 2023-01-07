@@ -2,8 +2,7 @@ import React from "react";
 import style from './Nav.module.scss';
 import { Link } from "./Nav.styled";
  
-
-export const Nav = () => {
+export default function Nav() {
     return (
         <header className={style.header}>
 

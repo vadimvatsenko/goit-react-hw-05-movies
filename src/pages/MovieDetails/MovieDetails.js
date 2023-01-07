@@ -4,7 +4,7 @@ import { findMovieById } from '../../services/API'
 import style from './MovieDetails.module.scss'
 
 
-export default function MovieDetails() {
+export const MovieDetails = () => {
 
   const { movieId } = useParams();
   const [currentMovieObj, setCurrentMovieObj] = useState(null);
