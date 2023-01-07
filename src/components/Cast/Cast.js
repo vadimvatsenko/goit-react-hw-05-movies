@@ -31,15 +31,30 @@ export default function Cast() {
   
         return (
             <ul className={style.cast}>
-                {movieCastObj.map(({name, character, profile_path}) => (
-                <li key={movieId}>
-                    <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} alt={name} width='280' />
-                    <p>{ name}</p>
-                    <p>{character }</p>
+                {movieCastObj.map(({ id, name, character, profile_path }) => (
+                    
+                    <li key={id} className={style.castWrap}>
+                        {profile_path !== null ?
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+                                alt={name}
+                                width='280' /> :
+                            
+                            
+                            <div className={style.noFotoWrap}><img className={style.noFotoImg}
+                                src='https://w7.pngwing.com/pngs/998/203/png-transparent-black-and-white-no-to-camera-logo-video-on-demand-retail-website-simple-no-miscellaneous-television-text.png'
+                                alt={name}
+                               
+                            /></div>}
+                           
+                        <div className={style.castInfo}>
+                            <p>{name}</p>
+                            <p>{character}</p>
+                        </div>
                     </li>
-                    ))}
+                ))}
                    
             </ul>
-        )
+        );
     }
 }

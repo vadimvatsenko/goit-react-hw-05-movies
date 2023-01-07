@@ -10,3 +10,23 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+.castWrap {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.castInfo {
+    margin-top: auto;
+}
+
+.noFotoWrap {
+    height: 100%;
+    width: 280px;
+}
+
+.noFotoImg {
+
+    object-fit: contain;
+}
