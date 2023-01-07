@@ -34,10 +34,7 @@ export async function castMovieById(movie_id) {
 export async function reviewMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
     const response = await axios.get(axiosUrl);
-    console.log(response.data.results)
-    if (response.data.results === []) {
-        return null;
-    }
+    console.log(response.data.results);      
     return response.data.results;
 }
 

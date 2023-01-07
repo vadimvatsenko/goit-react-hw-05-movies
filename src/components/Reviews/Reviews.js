@@ -15,14 +15,12 @@ export default function Reviews() {
       try {
           const getReviewsObj = await reviewMovieById(movieId);
           console.log(getReviewsObj)
-          if (getReviewsObj !== []) {
-              setReviewsObj(getReviewsObj) 
+          if (getReviewsObj === []) {
+              setReviewsObj(null) 
           }
+          setReviewsObj(getReviewsObj) 
           
-            
-            
-
-      } catch (error) {
+} catch (error) {
         setError(error);
       }
     }
@@ -30,20 +28,21 @@ export default function Reviews() {
    }, [movieId]);
 
     
-    if (reviewsObj === [] || reviewsObj === null) {
+    if (reviewsObj) {
+        return (
+            <ul className={style.reviews}>
+                {reviewsObj.map(({ id, author, content }) => (
+                    <li key={id} className={style.reviewsItem}>
+                        <p>{author}</p>
+                        <p className={style.reviewsItemDescr}>{content}</p>
+                    </li>
+                ))}
+            </ul>
+        );
+    } if (reviewsObj ===[]) {
         return (
             <div>NotFound</div>
-        );
+        )
     }
-    return (
-        <ul className={style.reviews}>
-            {reviewsObj.map(({ id, author, content }) => (
-                <li key={id} className={style.reviewsItem}>
-                    <p>{author}</p>
-                    <p className={style.reviewsItemDescr}>{content}</p>
-                </li>
-            ))}
-        </ul>
-    );
                 
 }
