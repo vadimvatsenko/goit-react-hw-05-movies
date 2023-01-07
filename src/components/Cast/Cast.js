@@ -15,20 +15,8 @@ export default function Cast() {
     const getMovieObj = async () => {
       try {
           const castObj = await castMovieById(movieId);
+            setMovieCastObj(castObj)
 
-               const cast = castObj.map(({ name, character, profile_path  }) => {
-                   setMovieCastObj({
-                       name,
-                       character,
-                       profile_path
-           })
-          });
-          console.log(cast)
-
-          setMovieCastObj({
-              castObj
-          });
-  
       } catch (error) {
         setError(error);
       }
@@ -36,22 +24,19 @@ export default function Cast() {
     getMovieObj();
    }, [movieId]);
     
-    console.log(movieCastObj)
-    
-  
-    
+ 
     if (movieCastObj) {
-        const { character, name, profile_path } = movieCastObj;
-        const imgUrl = `https://image.tmdb.org/t/p/w500/${profile_path}`;
+        // const imgUrl = `https://image.tmdb.org/t/p/w500/${profile_path}`;
   
         return (
             <ul>
-                
+                {movieCastObj.map(({name, character, profile_path}) => (
                 <li>
-                    <img src={imgUrl} alt={name} />
+                    <img  alt={name} />
                     <p>{ name}</p>
                     <p>{character }</p>
                     </li>
+                    ))}
                    
             </ul>
         )
