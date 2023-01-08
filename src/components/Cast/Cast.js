@@ -31,25 +31,26 @@ export default function Cast() {
                 {movieCastObj.map(({ id, name, character, profile_path }) => (
                     
                     <li key={id} className={style.castWrap}>
-                        <div className={style.castWrapContetnt}>
-                            {profile_path !== null ?
+                        {profile_path !== null ?
+                            <div className={style.noFotoWrap}>
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
                                     alt={name}
-                                    width='280' /> :
-                            
-                            
-                                <div className={style.noFotoWrap}><img className={style.noFotoImg}
+                                    width='280' />
+                            </div>
+                            :
+                            <div className={style.noFotoWrap}>
+                                <img className={style.noFotoImg}
                                     src='https://w7.pngwing.com/pngs/998/203/png-transparent-black-and-white-no-to-camera-logo-video-on-demand-retail-website-simple-no-miscellaneous-television-text.png'
                                     alt={name}
-                               
-                                /></div>}
+                                />
+                            </div>}
                            
-                            <div className={style.castInfo}>
-                                <p>{name}</p>
-                                <p>{character}</p>
-                            </div>
+                        <div className={style.castInfo}>
+                            <p>{name}</p>
+                            <p>{character}</p>
                         </div>
+
                     </li>
                 ))}
                    

@@ -36,7 +36,7 @@ export const MovieDetails = () => {
   
     return (
       <main >
-        <div className={style.movieWrap}>
+        <section className={style.movieWrap}>
           <img src={imgUrl} alt={title} width='300' />
           <div>
             <h3>{title} {`(${release_date.slice(0, 4)})`}</h3>
@@ -58,11 +58,13 @@ export const MovieDetails = () => {
               </ul>
             </div>
           </div>
-        </div>
-        <ul className={style.movieMoreInfo}>
-          <li className={style.movieMoreInfoLink}><Link  to="cast" end>Cast</Link></li>
-          <li className={style.movieMoreInfoLink}><Link  to="reviews" end>Reviews</Link></li>
-        </ul>
+        </section>
+        <section className={style.moviMoreInfoSection}>
+          <ul className={style.movieMoreInfo}>
+            <li className={style.movieMoreInfoLink}><Link to="cast" end>Cast</Link></li>
+            <li className={style.movieMoreInfoLink}><Link to="reviews" end>Reviews</Link></li>
+          </ul>
+        </section>
         <Outlet />
       </main>
     );
