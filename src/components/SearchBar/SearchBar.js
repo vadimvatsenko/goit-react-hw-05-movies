@@ -3,8 +3,8 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 
-export default function Searchbar() {
-    const [searchMovie, setSearchMovie] = useState('');
+export default function Searchbar({onSubmit}) {
+    // const [searchMovie, setSearchMovie] = useState('');
     const [changeInput, setChangeInput] = useState('');
 
     const handleChangeName = e => {
@@ -13,11 +13,8 @@ export default function Searchbar() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        setSearchMovie(e.currentTarget.value.toLowerCase())
-        // onSubmit(imgName);
-        // проп с APP в него передаем значение submit
-        setSearchMovie('')
-        //очистка после submit
+        onSubmit(changeInput);
+        setChangeInput('')
         
     };
 
@@ -33,7 +30,7 @@ export default function Searchbar() {
                     autoFocus
                     placeholder="Search Movies"
                     onChange={handleChangeName}
-                    value={searchMovie}
+                    value={changeInput}
                 />
                 <button className={style.searchFormButton} type='submit'></button>
             </form>
