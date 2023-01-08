@@ -57,5 +57,9 @@ export default function Cast() {
                    
             </ul>
         );
+    } if (!movieCastObj) {
+        return (
+            <div className={style.castEmty}>Cast is Emty</div>
+        )
     }
 }

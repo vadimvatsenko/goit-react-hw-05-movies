@@ -37,7 +37,9 @@ export default function Reviews() {
         );
     } if (!reviewsObj) {
         return (
-            <div className={style.reviews}>Reviews is Emty</div>
+            <div className={style.reviews}>
+                <p>Reviews is Emty</p>
+            </div>
         )
     }
             
