@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
 }
 
 .castWrap {
@@ -23,6 +24,7 @@
 
 .castInfo {
     margin-top: auto;
+    flex-grow: 1
 }
 
 .noFotoWrap {
@@ -31,6 +33,6 @@
 }
 
 .noFotoImg {
-
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
 }
