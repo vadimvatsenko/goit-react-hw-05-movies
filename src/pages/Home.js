@@ -1,8 +1,7 @@
+import TrandingMovie from "components/TrandingMovie/TrandingMovie";
 
-export const Home = ({children}) => {
+export const Home = ({ children }) => {
     return (
-        <div>
-            {children}
-        </div>
+       <TrandingMovie/> 
     );
 }

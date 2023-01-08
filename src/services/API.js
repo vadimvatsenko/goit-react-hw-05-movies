@@ -28,7 +28,7 @@ export async function castMovieById(movie_id) {
     const response = await axios.get(axiosUrl);
     console.log(response.data.cast.length)
     if (response.data.cast.length === 0) {
-        return null
+        return false
     }
     return response.data.cast;
 }
@@ -37,7 +37,7 @@ export async function reviewMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
     const response = await axios.get(axiosUrl);  
     if (response.data.total_results === 0) {
-        return null;
+        return false
     }
     return response.data.results;
 }

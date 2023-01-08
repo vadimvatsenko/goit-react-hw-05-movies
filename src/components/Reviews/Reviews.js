@@ -35,7 +35,7 @@ export default function Reviews() {
             </ul>
           
         );
-    } if (!reviewsObj) {
+    } if (reviewsObj === false) {
         return (
             <div className={style.reviews}>
                 <p>Reviews is Emty</p>

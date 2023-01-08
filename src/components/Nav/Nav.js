@@ -1,9 +1,11 @@
 import React from "react";
 import style from './Nav.module.scss';
 import { Link } from "./Nav.styled";
+import { Outlet } from "react-router-dom";
  
 export default function Nav() {
     return (
+        <>
         <header className={style.header}>
 
             <nav className={style.header__container}>
@@ -13,5 +15,7 @@ export default function Nav() {
                 </ul>
             </nav>
         </header>
+            <Outlet />
+            </>
     );
 }

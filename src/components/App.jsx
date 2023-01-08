@@ -1,7 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react';
-//Api
-import { getTrendMovie } from "services/API";
+
 // pages
 import { Home } from '../pages/Home';
 import { Movie } from '../pages/Movies';
@@ -14,35 +12,25 @@ import Cast from "./Cast/Cast";
 import Reviews from "./Reviews/Reviews";
 
 export const App = () => {
-  const [trendMovies, setTrendMovies] = useState([]);
-
-  useEffect(() => {
-   
-      const getTrandObj = async () => {
-        const trandObj = await getTrendMovie();
-        setTrendMovies(trandObj);
-      }
-      getTrandObj();
-    
-  }, []);
+  
 
   return (
     <div>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home>
-          <TrandingMovie trandMovies={trendMovies} />
-        </Home>} />
-        
-        <Route path="/movie" element={<Movie />} />
-
-        <Route path="/movie/:movieId" element={<MovieDetails />}>
-          <Route path='cast' element={<Cast />} />
+      
+    <Routes>
+        <Route path="/" element={<Nav />}>
+          <Route index element={<Home />} />
+          <Route path="movie" element={<Movie />} />
+          <Route path="movie/:movieId" element={<MovieDetails />}>
+          <Route path='cast' element={<Cast/>} />
           <Route path='reviews' element={<Reviews />} />
         </Route>
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      
     </div>
   );
 };
+

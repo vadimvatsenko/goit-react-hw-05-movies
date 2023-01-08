@@ -9,12 +9,14 @@ export default function Cast() {
     const { movieId } = useParams();
     const [movieCastObj, setMovieCastObj] = useState(null);
     const [error, setError] = useState(null);
+    // const [status, setStatus] = useState(true)
 
    useEffect(() => {
     const getMovieObj = async () => {
       try {
           const castObj = await castMovieById(movieId);
-            setMovieCastObj(castObj)
+          setMovieCastObj(castObj);
+
 
       } catch (error) {
         setError(error);
@@ -57,9 +59,9 @@ export default function Cast() {
                    
             </ul>
         );
-    } if (!movieCastObj) {
+    } if (movieCastObj === false) {
         return (
             <div className={style.castEmty}>Cast is Emty</div>
-        )
+        );
     }
-}
+    }
