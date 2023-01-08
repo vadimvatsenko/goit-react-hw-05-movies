@@ -7,7 +7,6 @@ import {MovieDetails} from '../pages/MovieDetails'
 import { NotFound } from "../pages/NotFound";
 // elements
 import Nav  from './Nav/Nav';
-import TrandingMovie from './TrandingMovie/TrandingMovie';
 import Cast from "./Cast/Cast";
 import Reviews from "./Reviews/Reviews";
 

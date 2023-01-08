@@ -3,18 +3,20 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 
-const Searchbar = ({onSubmit}) => {
-    const [imgName, setImgName] = useState('')
+export default function Searchbar() {
+    const [searchMovie, setSearchMovie] = useState('');
+    const [changeInput, setChangeInput] = useState('');
 
     const handleChangeName = e => {
-        setImgName(e.currentTarget.value.toLowerCase())
+        setChangeInput(e.currentTarget.value.toLowerCase())
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        onSubmit(imgName);
-        //проп с APP в него передаем значение submit
-        setImgName('')
+        setSearchMovie(e.currentTarget.value.toLowerCase())
+        // onSubmit(imgName);
+        // проп с APP в него передаем значение submit
+        setSearchMovie('')
         //очистка после submit
         
     };
@@ -24,9 +26,6 @@ const Searchbar = ({onSubmit}) => {
             <form
                 className={style.searchForm}
                 onSubmit={handleSubmit}>
-
-                {/* {children} */}
-
                 <input
                     className={style.searchFormInput}
                     type="text"
@@ -34,16 +33,13 @@ const Searchbar = ({onSubmit}) => {
                     autoFocus
                     placeholder="Search Movies"
                     onChange={handleChangeName}
-                    value={imgName}
+                    value={searchMovie}
                 />
+                <button className={style.searchFormButton} type='submit'></button>
             </form>
         </div>
     );
 
 }
 
-export { Searchbar };
     
-Searchbar.propTypes = {
-    onSubmit: PropTypes.func.isRequired
-}
