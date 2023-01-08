@@ -9,7 +9,6 @@ export async function getTrendMovie() {
     const axiosUrl = `trending/movie/day?api_key=${API_KEY}`
     const response = await axios.get(axiosUrl)
     return response.data.results;
-    
 };
 
 export async function findMovieById(movie_id) {
@@ -27,14 +26,15 @@ export async function findMovieByName(movieName) {
 export async function castMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`;
     const response = await axios.get(axiosUrl);
-    console.log(response.data.cast)
     return response.data.cast;
 }
 
 export async function reviewMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
-    const response = await axios.get(axiosUrl);
-    console.log(response.data.results);      
+    const response = await axios.get(axiosUrl);  
+    if (response.data.total_results === 0) {
+        return null;
+    }
     return response.data.results;
 }
 

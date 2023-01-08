@@ -1,4 +1,4 @@
-import { Searchbar } from "components/SearchMovieForm/SearchBar";
+import { Searchbar } from "components/SearchBar/SearchBar";
 import { useState } from "react";
 
 export const Movie = () => {

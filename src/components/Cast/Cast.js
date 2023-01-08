@@ -28,7 +28,7 @@ export default function Cast() {
   
         return (
             <ul className={style.cast}>
-                {movieCastObj.map(({ id, name, character, profile_path }) => (
+                {movieCastObj.map(({ id, name, character, profile_path, gender }) => (
                     
                     <li key={id} className={style.castWrap}>
                         {profile_path !== null ?
@@ -41,8 +41,9 @@ export default function Cast() {
                             :
                             <div className={style.noFotoWrap}>
                                 <img className={style.noFotoImg}
-                                    src='https://w7.pngwing.com/pngs/998/203/png-transparent-black-and-white-no-to-camera-logo-video-on-demand-retail-website-simple-no-miscellaneous-television-text.png'
+                                    src={gender ===1 ? 'https://svgsilh.com/svg/2028615.svg' : 'https://svgsilh.com/svg_v2/40041.svg'}
                                     alt={name}
+                                    width='280'
                                 />
                             </div>}
                            

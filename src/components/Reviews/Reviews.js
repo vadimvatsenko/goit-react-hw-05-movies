@@ -10,22 +10,17 @@ export default function Reviews() {
     const [reviewsObj, setReviewsObj] = useState(null);
     const [error, setError] = useState(null);
 
-   useEffect(() => {
-    const getMovieObj = async () => {
-      try {
-          const getReviewsObj = await reviewMovieById(movieId);
-          console.log(getReviewsObj)
-          if (getReviewsObj === []) {
-              setReviewsObj(null) 
-          }
-          setReviewsObj(getReviewsObj) 
-          
-} catch (error) {
-        setError(error);
-      }
-    }
-    getMovieObj();
-   }, [movieId]);
+    useEffect(() => {
+        const getMovieObj = async () => {
+            try {
+                const getReviewsObj = await reviewMovieById(movieId);
+                setReviewsObj(getReviewsObj);
+            } catch (error) {
+                setError(error);
+            }
+        }
+        getMovieObj();
+    }, [movieId]);
 
     
     if (reviewsObj) {
@@ -38,11 +33,15 @@ export default function Reviews() {
                     </li>
                 ))}
             </ul>
+          
         );
-    } if (reviewsObj ===[]) {
+    } if (!reviewsObj) {
         return (
-            <div>NotFound</div>
+            <div className={style.reviews}>Reviews is Emty</div>
         )
     }
+            
+}       
+    
                 
-}
+
