@@ -28,35 +28,37 @@ export default function Cast() {
     if (movieCastObj) {
   
         return (
-            <ul className={style.cast}>
-                {movieCastObj.map(({ id, name, character, profile_path, gender }) => (
+            <section>
+                <ul className={style.cast}>
+                    {movieCastObj.map(({ id, name, character, profile_path, gender }) => (
                     
-                    <li key={id} className={style.castWrap}>
-                        {profile_path !== null ?
-                            <div className={style.noFotoWrap}>
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
-                                    alt={name}
-                                    width='280' />
-                            </div>
-                            :
-                            <div className={style.noFotoWrap}>
-                                <img className={style.noFotoImg}
-                                    src={gender ===1 ? 'https://svgsilh.com/svg/2028615.svg' : 'https://svgsilh.com/svg_v2/40041.svg'}
-                                    alt={name}
-                                    width='280'
-                                />
-                            </div>}
+                        <li key={id} className={style.castWrap}>
+                            {profile_path !== null ?
+                                <div className={style.noFotoWrap}>
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+                                        alt={name}
+                                        width='280' />
+                                </div>
+                                :
+                                <div className={style.noFotoWrap}>
+                                    <img className={style.noFotoImg}
+                                        src={gender === 1 ? 'https://svgsilh.com/svg/2028615.svg' : 'https://svgsilh.com/svg_v2/40041.svg'}
+                                        alt={name}
+                                        width='280'
+                                    />
+                                </div>}
                            
-                        <div className={style.castInfo}>
-                            <p>{name}</p>
-                            <p>{character}</p>
-                        </div>
+                            <div className={style.castInfo}>
+                                <p>{name}</p>
+                                <p>{character}</p>
+                            </div>
 
-                    </li>
-                ))}
+                        </li>
+                    ))}
                    
-            </ul>
+                </ul>
+            </section>
         );
     } if (movieCastObj === false) {
         return (

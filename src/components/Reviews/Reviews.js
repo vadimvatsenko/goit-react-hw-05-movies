@@ -26,21 +26,23 @@ export default function Reviews() {
     
     if (reviewsObj) {
         return (
-            <ul className={style.reviews}>
-                {reviewsObj.map(({ id, author, content }) => (
-                    <li key={id} className={style.reviewsItem}>
-                        <p>{author}</p>
-                        <p className={style.reviewsItemDescr}>{content}</p>
-                    </li>
-                ))}
-            </ul>
+            <section>
+                <ul className={style.reviews}>
+                    {reviewsObj.map(({ id, author, content }) => (
+                        <li key={id} className={style.reviewsItem}>
+                            <p>{author}</p>
+                            <p className={style.reviewsItemDescr}>{content}</p>
+                        </li>
+                    ))}
+                </ul>
+            </section>
           
         );
     } if (reviewsObj === false) {
         return (
-            <div className={style.reviews}>
+            <section className={style.reviews}>
                 <p>Reviews is Emty</p>
-            </div>
+            </section>
         )
     }
             

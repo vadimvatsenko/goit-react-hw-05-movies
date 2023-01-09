@@ -18,14 +18,16 @@ export default function TrandingMovie() {
 
     return (
         <>
-            <h2
+            
+            <MovieList movieList={trendMovies}>
+                <h2
                 style={{
-                textAlign: 'center',
+                    textAlign: 'center',
                     marginTop: '20px'
                 }}>
                 Treding Movies
             </h2>
-        <MovieList movieList={trendMovies}/>
+            </MovieList>
         </>
 
     );

@@ -1,4 +1,5 @@
 import style from './Searchbar.module.scss';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState, useEffect } from 'react';
 import { useSearchParams} from 'react-router-dom';
 import { findMovieByName } from 'services/API';
@@ -12,13 +13,18 @@ export default function Searchbar() {
     const [error, setError] = useState(null);
     
     useEffect(() => {
-        if (name === null ) {
+        if (name === null) {
+                setSearchMovieObj([])
                 return;
             }
             const getSearchFilmsObj = async () => {
                 try {
                     const searchFilmObj = await findMovieByName(name);
-                    setSearchMovieObj(searchFilmObj)
+                    setSearchMovieObj(searchFilmObj);
+                    if (searchFilmObj.length === 0) {
+                       Notify.failure('Nothing'); 
+                    }
+ 
                 } catch (error) {
                     setError(error);
                 }
@@ -31,6 +37,12 @@ export default function Searchbar() {
         e.preventDefault();
         const form = e.currentTarget;
         setSearchParams({ name: form.elements.search.value });
+       
+        if (form.elements.search.value === '') {
+            Notify.failure('Nothing');
+            setSearchMovieObj(null);
+            return;
+        }
         form.reset();
     }
     

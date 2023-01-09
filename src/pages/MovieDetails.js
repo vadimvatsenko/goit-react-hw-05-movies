@@ -1,6 +1,7 @@
-import { useParams, Outlet } from "react-router-dom";
+import { useParams, Outlet, useLocation, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { findMovieById } from '../services/API';
+import { HiArrowLeft } from "react-icons/hi";
 
 import MoreInfo from '../components/MovieInfo/MovieInfo';
 import MovieMoreInfo from "components/MovieMoreInfo/MovieMoreInfo";
@@ -11,6 +12,9 @@ export default function MovieDetails() {
   const [currentMovieObj, setCurrentMovieObj] = useState(null);
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/goit-react-hw-05-movies/movie";
+    
 
   useEffect(() => {
     const getMovieObj = async () => {
@@ -37,7 +41,19 @@ export default function MovieDetails() {
     const imgUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   
     return (
-      <main >
+      
+        <div>
+        <Link to={backLinkHref}
+          style={{
+          position: 'absolute',
+          display: 'inline-block',
+            backgroundColor: 'yellow',
+            padding: '10px',
+          borderRadius: '5px',
+        }}>
+          <HiArrowLeft />
+          Back
+        </Link>
         <MoreInfo
           title={title}
           imgUrl={imgUrl}
@@ -50,7 +66,7 @@ export default function MovieDetails() {
           
         <MovieMoreInfo/>
         <Outlet />
-      </main>
+      </div>
     );
   }
 }

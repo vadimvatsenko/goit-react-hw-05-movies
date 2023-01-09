@@ -1,7 +1,6 @@
+//DONE
 import style from './MovieInfo.module.scss';
 import PropTypes from 'prop-types';
-
-
 
 export default function MovieInfo({title, imgUrl, release_date, overview, genres, vote_average}) {
     return (
