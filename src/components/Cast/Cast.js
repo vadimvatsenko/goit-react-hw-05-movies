@@ -63,4 +63,7 @@ export default function Cast() {
             <div className={style.castEmty}>Cast is Emty</div>
         );
     }
-    }
+}
+    
+
+

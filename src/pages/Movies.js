@@ -1,6 +1,6 @@
 import Searchbar from "components/SearchBar/SearchBar";
 
-export const Movie = () => {
+export default function Movie () {
     
     return (
         <Searchbar/>

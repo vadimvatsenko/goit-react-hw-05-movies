@@ -1,6 +1,6 @@
 import TrandingMovie from "components/TrandingMovie/TrandingMovie";
 
-export const Home = () => {
+export default function Home() {
     return (
        <TrandingMovie/> 
     );

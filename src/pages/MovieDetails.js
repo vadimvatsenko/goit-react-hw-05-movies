@@ -5,7 +5,7 @@ import { findMovieById } from '../services/API';
 import MoreInfo from '../components/MovieInfo/MovieInfo';
 import MovieMoreInfo from "components/MovieMoreInfo/MovieMoreInfo";
 
-export const MovieDetails = () => {
+export default function MovieDetails() {
 
   const { movieId } = useParams();
   const [currentMovieObj, setCurrentMovieObj] = useState(null);

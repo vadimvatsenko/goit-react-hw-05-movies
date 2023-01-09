@@ -1,6 +1,6 @@
 import React from "react";
 
-export const NotFound = () => {
+export default function NotFound() {
   return (
     <main style={{ textAlign: "center" }}>
       <b style={{ fontSize: 64 }}>404</b>
