@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function SearchMovies({ searchMoviesObj }) {
+    
     return (
         <section className={style.trendingMovie}>
             <ul>

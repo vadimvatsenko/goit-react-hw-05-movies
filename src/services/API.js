@@ -1,3 +1,4 @@
+//DONE
 import axios from "axios";
 
 const API_KEY = '137ae7e6367e772dd156f1aad841f871';
@@ -9,6 +10,7 @@ export async function getTrendMovie() {
     const axiosUrl = `trending/movie/day?api_key=${API_KEY}`
     const response = await axios.get(axiosUrl)
     return response.data.results;
+
 };
 
 export async function findMovieById(movie_id) {
@@ -26,7 +28,6 @@ export async function findMovieByName(movieName) {
 export async function castMovieById(movie_id) {
     const axiosUrl = `movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`;
     const response = await axios.get(axiosUrl);
-    console.log(response.data.cast.length)
     if (response.data.cast.length === 0) {
         return false
     }

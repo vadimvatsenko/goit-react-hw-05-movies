@@ -8,8 +8,8 @@ import style from './Cast.module.scss';
 export default function Cast() {
     const { movieId } = useParams();
     const [movieCastObj, setMovieCastObj] = useState(null);
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState(null);
-    // const [status, setStatus] = useState(true)
 
    useEffect(() => {
     const getMovieObj = async () => {

@@ -8,6 +8,7 @@ import style from './Reviews.module.scss'
 export default function Reviews() {
     const { movieId } = useParams();
     const [reviewsObj, setReviewsObj] = useState(null);
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState(null);
 
     useEffect(() => {

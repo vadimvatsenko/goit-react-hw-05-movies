@@ -1,6 +1,7 @@
 import { useParams, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { findMovieById } from '../services/API';
+
 import MoreInfo from '../components/MovieInfo/MovieInfo';
 import MovieMoreInfo from "components/MovieMoreInfo/MovieMoreInfo";
 
@@ -8,6 +9,7 @@ export const MovieDetails = () => {
 
   const { movieId } = useParams();
   const [currentMovieObj, setCurrentMovieObj] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
 
   useEffect(() => {

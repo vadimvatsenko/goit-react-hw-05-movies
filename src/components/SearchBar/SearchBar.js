@@ -1,33 +1,48 @@
 import style from './Searchbar.module.scss';
-import { useState } from 'react';
-import { useSearchParams, useLocation, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import { useSearchParams} from 'react-router-dom';
+import { findMovieByName } from 'services/API';
+import SearchMovies from 'components/SearchMovies/SearchMovies';
 
-
-export default function Searchbar({onSubmit}) {
+export default function Searchbar() {
+    //params
     const [searchParams, setSearchParams] = useSearchParams();
-    const location = useLocation();
-    const backLinkHref = location.state?.from ?? "/movie";
-    const [searchMovies, setSearchMovies] = useState('')
     const name = searchParams.get("name");
+    // state
+    const [searchMoviesObj, setSearchMovieObj] = useState(null);
+    // eslint-disable-next-line no-unused-vars
+    const [error, setError] = useState(null);
+    
 
-    const handleChangeName = e => {
-        setSearchParams({ name: e.currentTarget.value.toLowerCase() });
-        setSearchMovies(e.currentTarget.value.toLowerCase())
-    }
+    useEffect(() => {
+        if (name === '' ) {
+                setSearchMovieObj(null)
+                return;
+            }
+            const getSearchFilmsObj = async () => {
+                try {
+                    const searchFilmObj = await findMovieByName(name);
+                    setSearchMovieObj(searchFilmObj)
+                } catch (error) {
+                    setError(error);
+                }
+            }
+            getSearchFilmsObj();
+        },[name])
+
 
     const handleFormSubmit = e => {
         e.preventDefault();
-        onSubmit(searchMovies);
-        searchMovies('')
-
+        const form = e.currentTarget;
+        setSearchParams({ name: form.elements.search.value });
+        form.reset();
 
     }
     
     return (
-        <>
-        <Link to={backLinkHref}>Back to products</Link>
-        <div className={style.searchbar}>
+
+<>
+        <section className={style.searchbar}>
             
             <form
                 className={style.searchForm}
@@ -38,16 +53,24 @@ export default function Searchbar({onSubmit}) {
                     type="text"
                     autoComplete="off"
                     autoFocus
-                    placeholder="Search Movies"
-                    onChange={handleChangeName}
-                    value={name}
+                        placeholder="Search Movies"
+                        name='search'
+                    // onChange={handleChangeName}
+                    // value={name}
                 />
                 <button className={style.searchFormButton} type='submit'></button>
             </form>
-            </div>
-            </>
+            </section>
+            {searchMoviesObj  && <SearchMovies searchMoviesObj={searchMoviesObj}/> }
+           
+       </>     
+
+
     );
 
 }
 
-    
+Searchbar.propTypes = {
+
+}
+
