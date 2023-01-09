@@ -7,13 +7,12 @@ import MovieList from 'components/MovieList/MovieList';
 export default function Searchbar() {
     const [searchParams, setSearchParams] = useSearchParams();
     const name = searchParams.get("name");
-    const [searchMoviesObj, setSearchMovieObj] = useState(null);
+    const [searchMoviesObj, setSearchMovieObj] = useState([]);
     // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState(null);
     
     useEffect(() => {
-        if (name === '' ) {
-                setSearchMovieObj(null)
+        if (name === null ) {
                 return;
             }
             const getSearchFilmsObj = async () => {
@@ -25,7 +24,7 @@ export default function Searchbar() {
                 }
             }
             getSearchFilmsObj();
-        },[name])
+        },[name, searchMoviesObj])
 
 
     const handleFormSubmit = e => {
