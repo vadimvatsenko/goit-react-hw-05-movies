@@ -17,6 +17,7 @@ export const App = () => {
       <Routes>
         <Route path="/goit-react-hw-05-movies" element={<Nav />}>
           <Route index element={<Home />} />
+          
           <Route path="/goit-react-hw-05-movies/movie" element={<Movie />} />
           <Route path="/goit-react-hw-05-movies/movie/:movieId" element={<MovieDetails />}>
             <Route path='cast' element={<Cast />} />
@@ -28,5 +29,7 @@ export const App = () => {
     </Suspense>
   );
 };
+
+
 
 

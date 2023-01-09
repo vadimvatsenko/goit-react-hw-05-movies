@@ -24,7 +24,7 @@ export default function Searchbar() {
                 }
             }
             getSearchFilmsObj();
-        },[name, searchMoviesObj])
+        },[name])
 
 
     const handleFormSubmit = e => {
