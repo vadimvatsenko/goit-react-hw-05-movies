@@ -20,7 +20,7 @@ export async function findMovieById(movie_id) {
 export async function findMovieByName(movieName) {
     const axiosUrl = `search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`
     const response = await axios.get(axiosUrl);
-    return response.data;
+    return response.data.results;
 }
 
 export async function castMovieById(movie_id) {

@@ -1,4 +1,5 @@
-import Searchbar  from "components/SearchBar/SearchBar";
+import Searchbar from "components/SearchBar/SearchBar";
+import SearchMovies from "components/SearchMovies/SearchMovies";
 import { useState, useEffect } from "react";
 import { findMovieByName } from 'services/API'
 
@@ -29,11 +30,14 @@ export const Movie = () => {
             setSearchMovie(name)
         }
     
-        return (
-            <>
+    return (
+        <>
             <Searchbar
-                    onSubmit={handleFormSubmit} />
+                onSubmit={handleFormSubmit} />
+            <SearchMovies
+                searchMoviesObj={searchMoviesObj} />
+                
             
         </>
-        )
+    );
     }

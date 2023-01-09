@@ -1,28 +1,38 @@
 import style from './Searchbar.module.scss';
 import { useState } from 'react';
+import { useSearchParams, useLocation, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
 export default function Searchbar({onSubmit}) {
-    // const [searchMovie, setSearchMovie] = useState('');
-    const [changeInput, setChangeInput] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? "/movie";
+    const [searchMovies, setSearchMovies] = useState('')
+    const name = searchParams.get("name");
 
     const handleChangeName = e => {
-        setChangeInput(e.currentTarget.value.toLowerCase())
-    };
+        setSearchParams({ name: e.currentTarget.value.toLowerCase() });
+        setSearchMovies(e.currentTarget.value.toLowerCase())
+    }
 
-    const handleSubmit = e => {
+    const handleFormSubmit = e => {
         e.preventDefault();
-        onSubmit(changeInput);
-        setChangeInput('')
-        
-    };
+        onSubmit(searchMovies);
+        searchMovies('')
 
+
+    }
+    
     return (
+        <>
+        <Link to={backLinkHref}>Back to products</Link>
         <div className={style.searchbar}>
+            
             <form
                 className={style.searchForm}
-                onSubmit={handleSubmit}>
+                onSubmit={handleFormSubmit}
+            >
                 <input
                     className={style.searchFormInput}
                     type="text"
@@ -30,11 +40,12 @@ export default function Searchbar({onSubmit}) {
                     autoFocus
                     placeholder="Search Movies"
                     onChange={handleChangeName}
-                    value={changeInput}
+                    value={name}
                 />
                 <button className={style.searchFormButton} type='submit'></button>
             </form>
-        </div>
+            </div>
+            </>
     );
 
 }
