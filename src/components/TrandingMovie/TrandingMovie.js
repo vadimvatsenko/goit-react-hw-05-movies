@@ -25,7 +25,7 @@ export default function TrandingMovie() {
             <ul>
                 {trendMovies.map(({ title, name, id }) => (
                 <li key={id} className={style.trendingMovieItem}  >
-                        <Link  to={`/movie/${id}`}>
+                        <Link  to={`/goit-react-hw-05-movies/movie/${id}`}>
                         {title ? title : name}
                     </Link>
                     </li>

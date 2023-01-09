@@ -5,8 +5,8 @@ export default function  MovieMoreInfo() {
     return (
         <section className={style.moviMoreInfoSection}>
           <ul className={style.movieMoreInfo}>
-            <li className={style.movieMoreInfoLink}><Link to="cast" end>Cast</Link></li>
-            <li className={style.movieMoreInfoLink}><Link to="reviews" end>Reviews</Link></li>
+            <li className={style.movieMoreInfoLink}><Link to="cast">Cast</Link></li>
+            <li className={style.movieMoreInfoLink}><Link to="reviews">Reviews</Link></li>
           </ul>
         </section>
     )

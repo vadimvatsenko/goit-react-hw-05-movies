@@ -1,4 +1,6 @@
 import style from './MovieInfo.module.scss';
+import PropTypes from 'prop-types';
+
 
 
 export default function MovieInfo({title, imgUrl, release_date, overview, genres, vote_average}) {
@@ -27,4 +29,17 @@ export default function MovieInfo({title, imgUrl, release_date, overview, genres
           </div>
         </section>
     )
+}
+
+MovieInfo.propTypes = {
+  title: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string
+    }).isRequired
+  )
 }

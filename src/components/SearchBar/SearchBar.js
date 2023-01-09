@@ -41,36 +41,31 @@ export default function Searchbar() {
     
     return (
 
-<>
-        <section className={style.searchbar}>
+        <>
+            <section className={style.searchbar}>
             
-            <form
-                className={style.searchForm}
-                onSubmit={handleFormSubmit}
-            >
-                <input
-                    className={style.searchFormInput}
-                    type="text"
-                    autoComplete="off"
-                    autoFocus
+                <form
+                    className={style.searchForm}
+                    onSubmit={handleFormSubmit}
+                >
+                    <input
+                        className={style.searchFormInput}
+                        type="text"
+                        autoComplete="off"
+                        autoFocus
                         placeholder="Search Movies"
                         name='search'
-                    // onChange={handleChangeName}
-                    // value={name}
-                />
-                <button className={style.searchFormButton} type='submit'></button>
-            </form>
+
+                    />
+                    <button className={style.searchFormButton} type='submit'></button>
+                </form>
             </section>
-            {searchMoviesObj  && <SearchMovies searchMoviesObj={searchMoviesObj}/> }
+            {searchMoviesObj && <SearchMovies searchMoviesObj={searchMoviesObj} />}
            
-       </>     
-
-
+        </>
     );
 
 }
 
-Searchbar.propTypes = {
 
-}
 

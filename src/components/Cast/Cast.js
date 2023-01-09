@@ -1,9 +1,8 @@
+//DONE
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { castMovieById } from "services/API";
 import style from './Cast.module.scss';
-
-
 
 export default function Cast() {
     const { movieId } = useParams();
