@@ -2,18 +2,15 @@ import style from './Searchbar.module.scss';
 import { useState, useEffect } from 'react';
 import { useSearchParams} from 'react-router-dom';
 import { findMovieByName } from 'services/API';
-import SearchMovies from 'components/SearchMovies/SearchMovies';
+import MovieList from 'components/MovieList/MovieList';
 
 export default function Searchbar() {
-    //params
     const [searchParams, setSearchParams] = useSearchParams();
     const name = searchParams.get("name");
-    // state
     const [searchMoviesObj, setSearchMovieObj] = useState(null);
     // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState(null);
     
-
     useEffect(() => {
         if (name === '' ) {
                 setSearchMovieObj(null)
@@ -36,11 +33,9 @@ export default function Searchbar() {
         const form = e.currentTarget;
         setSearchParams({ name: form.elements.search.value });
         form.reset();
-
     }
     
     return (
-
         <>
             <section className={style.searchbar}>
             
@@ -60,8 +55,9 @@ export default function Searchbar() {
                     <button className={style.searchFormButton} type='submit'></button>
                 </form>
             </section>
-            {searchMoviesObj && <SearchMovies searchMoviesObj={searchMoviesObj} />}
-           
+            <section>
+                {searchMoviesObj && <MovieList movieList={searchMoviesObj} />}
+            </section>
         </>
     );
 

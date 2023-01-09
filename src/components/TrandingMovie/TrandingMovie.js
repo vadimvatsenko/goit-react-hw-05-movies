@@ -1,9 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import style from './TrandingMovie.module.scss';
 import { useState, useEffect } from 'react';
-//Api
 import { getTrendMovie } from "services/API";
+import MovieList from 'components/MovieList/MovieList';
 
 export default function TrandingMovie() {
 
@@ -20,17 +17,16 @@ export default function TrandingMovie() {
     
 
     return (
-        <section className={style.trendingMovie}>
-            <h2 className={style.trendingMovieTitle}>Treding Movies</h2>
-            <ul>
-                {trendMovies.map(({ title, name, id }) => (
-                <li key={id} className={style.trendingMovieItem}  >
-                        <Link  to={`/goit-react-hw-05-movies/movie/${id}`}>
-                        {title ? title : name}
-                    </Link>
-                    </li>
-                ))}
-            </ul>
-        </section>
+        <>
+            <h2
+                style={{
+                textAlign: 'center',
+                    marginTop: '20px'
+                }}>
+                Treding Movies
+            </h2>
+        <MovieList movieList={trendMovies}/>
+        </>
+
     );
 }
