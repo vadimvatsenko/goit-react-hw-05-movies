@@ -36,7 +36,7 @@ export default function Searchbar() {
     const handleFormSubmit = e => {
         e.preventDefault();
         const form = e.currentTarget;
-        setSearchParams({ name: form.elements.search.value });
+        setSearchParams({ name: form.elements.search.value.toLowerCase() });
        
         if (form.elements.search.value === '') {
             Notify.failure('Nothing');
