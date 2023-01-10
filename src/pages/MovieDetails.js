@@ -13,8 +13,11 @@ export default function MovieDetails() {
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
   const location = useLocation();
+  console.log(location)
   const backLinkHref = location.state?.from ?? "/movie";
-    
+
+
+
 
   useEffect(() => {
     const getMovieObj = async () => {
@@ -55,6 +58,7 @@ export default function MovieDetails() {
           Back
         </Link>
         <MoreInfo
+          
           title={title}
           imgUrl={imgUrl}
           release_date={release_date}
@@ -64,7 +68,8 @@ export default function MovieDetails() {
         
         />
           
-        <MovieMoreInfo/>
+        <MovieMoreInfo
+          state={{from: location}} />
         <Outlet />
       </div>
     );
