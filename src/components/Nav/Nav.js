@@ -10,7 +10,7 @@ export default function Nav() {
                 <nav className={style.header__container}>
                     <ul className={style.header__menu}>
                         <li className={style.header__menuTitle}>
-                            <Link to="/goit-react-hw-05-movies">Home</Link>
+                            <Link to="/goit-react-hw-05-movies" end>Home</Link>
                         </li>
                         <li className={style.header__menuTitle}>
                             <Link to="/goit-react-hw-05-movies/movie">Movie</Link>
