@@ -14,7 +14,7 @@ export default function MovieList({ movieList, children }) {
                 {movieList.map(({ title, name, id }) => (
                     <li key={id} className={style.trendingMovieItem}  >
                         <Link className={style.trendingMovieLink}
-                            to={`/goit-react-hw-05-movies/movie/${id}`}
+                            to={`/movie/${id}`}
                             state={{ from: location }}>
                             {title ? title : name}
                         </Link>

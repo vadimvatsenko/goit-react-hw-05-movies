@@ -13,7 +13,7 @@ export default function MovieDetails() {
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? "/goit-react-hw-05-movies/movie";
+  const backLinkHref = location.state?.from ?? "/movie";
     
 
   useEffect(() => {
