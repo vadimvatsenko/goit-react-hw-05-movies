@@ -2,7 +2,6 @@ import { useParams, Outlet, useLocation, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { findMovieById } from '../services/API';
 import { HiArrowLeft } from "react-icons/hi";
-
 import MoreInfo from '../components/MovieInfo/MovieInfo';
 import MovieMoreInfo from "components/MovieMoreInfo/MovieMoreInfo";
 
@@ -12,12 +11,9 @@ export default function MovieDetails() {
   const [currentMovieObj, setCurrentMovieObj] = useState(null);
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
+
   const location = useLocation();
-  console.log(location)
   const backLinkHref = location.state?.from ?? "/movie";
-
-
-
 
   useEffect(() => {
     const getMovieObj = async () => {
@@ -50,8 +46,8 @@ export default function MovieDetails() {
           style={{
           position: 'absolute',
           display: 'inline-block',
-            backgroundColor: 'yellow',
-            padding: '10px',
+          backgroundColor: 'yellow',
+          padding: '10px',
           borderRadius: '5px',
         }}>
           <HiArrowLeft />
@@ -68,8 +64,7 @@ export default function MovieDetails() {
         
         />
           
-        <MovieMoreInfo
-          state={{from: location}} />
+        <MovieMoreInfo backLinkHref={ backLinkHref} />
         <Outlet />
       </div>
     );

@@ -4,7 +4,8 @@ import style from './MovieList.module.scss';
 import PropTypes from 'prop-types';
 
 export default function MovieList({ movieList, children }) {
-     const location = useLocation()
+    const location = useLocation();
+    
 
     return (
        
@@ -15,7 +16,8 @@ export default function MovieList({ movieList, children }) {
                     <li key={id} className={style.trendingMovieItem}  >
                         <Link className={style.trendingMovieLink}
                             to={`/movie/${id}`}
-                            state={{ from: location }}>
+                            state={{ from: location }}
+                        >
                             {title ? title : name}
                         </Link>
                     </li>

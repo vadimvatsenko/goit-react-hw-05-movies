@@ -5,6 +5,7 @@ import { castMovieById } from "services/API";
 import style from './Cast.module.scss';
 
 export default function Cast() {
+
     const { movieId } = useParams();
     const [movieCastObj, setMovieCastObj] = useState(null);
     // eslint-disable-next-line no-unused-vars
